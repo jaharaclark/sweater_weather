@@ -6,10 +6,10 @@ RSpec.describe 'Weather', type: :request do
       - id, always set to null
       - type, always set to “forecast”
     attributes, an object containing weather information:' do
-    #  response = ForecastFacade.weather_by_category(39.7385, -104.9849)
+    long_and_lat = MapquestFacade.get_location("denver,co")
+    returned_weather = ForecastFacade.weather_by_category(long_and_lat)
 
     get "/api/v1/forecast?",params:{location: "denver,co"}, headers:{"Content-Type": "application/json", "Accept": "application/json"}
-    require 'pry'; binding.pry
     expect(response).to be_successful
 
       
