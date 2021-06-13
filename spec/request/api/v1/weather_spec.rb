@@ -6,12 +6,16 @@ RSpec.describe 'Weather', type: :request do
       - id, always set to null
       - type, always set to “forecast”
     attributes, an object containing weather information:' do
+    #  response = ForecastFacade.weather_by_category(39.7385, -104.9849)
 
-      get "/api/v1/forecast?",params:{location: "denver,co"}, headers:{"Content-Type": "application/json", "Accept": "application/json"}
-      expect(response).to be_successful
+    get "/api/v1/forecast?",params:{location: "denver,co"}, headers:{"Content-Type": "application/json", "Accept": "application/json"}
+    require 'pry'; binding.pry
+    expect(response).to be_successful
+
+      
       # expect application json content type?
       # expect parse data class is a hash?
-      expect(response[:data][:id]).to eq("null" || "nil")
+      # expect(response[:data][:id]).to eq("null" || nil)
       expect(response[:data][:type]).to eq("forecast")
       expect(response[:data][:attributes].first).to eq("current_weather")
       expect(response[:data][:attributes].second).to eq("daily_weather")
