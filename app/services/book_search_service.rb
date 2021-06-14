@@ -5,7 +5,6 @@ class BookSearchService
       request.params['limit'] = amount
     end
     parse_response(response)
-    require 'pry'; binding.pry
   end
 
   private
