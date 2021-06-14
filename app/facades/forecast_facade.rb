@@ -2,7 +2,6 @@ class ForecastFacade
   def self.weather_by_category(weather_metrics)
     upcoming_weather = ForecastService.return_forecast(weather_metrics)
     current_weather = CurrentWeather.new(upcoming_weather[:current])
-    # require 'pry'; binding.pry
     hourly_weather = upcoming_weather[:hourly][0..7].map do |hourly_data|
       HourlyWeather.new(hourly_data)
     end
