@@ -4,5 +4,6 @@ class BookSearchFacade
     books_to_read = returned_book_list[:docs][0..5].map do |book|
       BookSearch.new(book)
     end
+    count_of_returned_books = BookCount.new(returned_book_list)
   end
 end
