@@ -2,6 +2,7 @@ require 'securerandom'
 
 class User < ApplicationRecord
   before_create :set_api_key
+  has_secure_password
   validates :email, presence: true, uniqueness: true
   validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :password, presence: true, length: {minimum: 8}
