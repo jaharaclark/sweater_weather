@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Image', type: :request do
   it 'returns: a background image for that page showing the city' do
-    # get "/api/v1/backgrounds?location=denver,co"
     get "/api/v1/backgrounds?", params:{location: "denver,co"}, headers:{"Content-Type": "application/json", "Accept": "application/json"}
     parsed_response = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful

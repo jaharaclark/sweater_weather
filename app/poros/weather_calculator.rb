@@ -21,7 +21,6 @@ class WeatherCalculator
   
   def daily_calculator
     weather.current_weather.datetime.to_datetime.strftime('%s').to_i + @drivetime
-    require 'pry'; binding.pry
   end
 end
 

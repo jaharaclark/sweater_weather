@@ -1,12 +1,12 @@
 class RoadTrip
-  attr_reader :time_to_arrival, :starting_location, :ending_location, :longitude, :latitude
-  
+  attr_reader :id, :travel_time, :start_city, :end_city, :current_temp, :current_conditions
+
   def initialize(data)
     @id = nil
-    @time_to_arrival = data[:travel_time]
-    @starting_location = data[:starting_location]
-    @ending_location = data[:ending_location]
-    @longitude = data[:longitude]
-    @latitude = data[:latitude]
+    @travel_time = data[:travel_time]
+    @start_city = data[:starting_location]
+    @end_city = data[:ending_location]
+    @current_temp = data[:weather][:current][:temp]
+    @current_conditions = data[:weather][:current][:weather].first[:description]
   end
 end
